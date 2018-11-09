@@ -19,6 +19,9 @@ dependencies {
     //compile 'com.google.guava:guava:23.0'
     implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+    implementation "org.flywaydb:flyway-core:5.2.1"
+    implementation "org.postgresql:postgresql:42.2.5"
 
 
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
