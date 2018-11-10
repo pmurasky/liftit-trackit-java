@@ -29,3 +29,7 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
 }
 
+task local << {
+    bootRun.systemProperty 'spring.profiles.active', 'local'
+}
+
