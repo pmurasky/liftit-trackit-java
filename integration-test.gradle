@@ -1,11 +1,12 @@
 configurations {
     integrationTestImplementation.extendsFrom testImplementation
+    integrationTestRuntime.extendsFrom testRuntime
 }
 
 sourceSets {
     integrationTest {
-        compileClasspath += main.output + test.output
-        runtimeClasspath += main.output + test.output
+        compileClasspath += sourceSets.main.output + test.output
+        runtimeClasspath += sourceSets.main.output
         java.srcDirs = ['src/integration-test/java']
         resources.srcDirs = ['src/integration-test/resources']
     }
@@ -14,7 +15,7 @@ sourceSets {
 task integrationTest(type: Test) {
     description = 'Runs the integration tests.'
     group = 'Verification'
-    testClassesDir = sourceSets.integrationTest.output.classesDir
+    testClassesDirs = sourceSets.integrationTest.output.classesDirs
     classpath = sourceSets.integrationTest.runtimeClasspath
     reports.html.destination = file("$reporting.baseDir/${name}")
 }
